@@ -28,7 +28,7 @@ public class MySqlDatabase
     
     private MySqlCommand CreateCommand() => Connection.CreateCommand();
     
-    public async Task ExecuteNonQuery(string query, params MySqlParameter[] parameters)
+    public async Task ExecuteNonQueryAsync(string query, params MySqlParameter[] parameters)
     {
         await ConnectionOpenAsync();
         await using var cmd = CreateCommand();
