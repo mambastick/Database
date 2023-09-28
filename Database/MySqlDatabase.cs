@@ -3,12 +3,12 @@ using MySql.Data.MySqlClient;
 
 namespace Database;
 
-public class MySqlDatabase
+public abstract class MySqlDatabase
 {
     private MySqlConnection Connection;
     private string ConnectionString;
 
-    public MySqlDatabase(string server, string database, string username, string password)
+    protected MySqlDatabase(string server, string database, string username, string password)
     {
         ConnectionString = $"Server={server};Database={database};User ID={username};Password={password};";
         Connection = new MySqlConnection(ConnectionString);
@@ -46,5 +46,22 @@ public class MySqlDatabase
         cmd.Parameters.AddRange(parameters);
         var reader = await cmd.ExecuteReaderAsync(CommandBehavior.CloseConnection);
         return reader;
+    }
+    
+    public async Task<object> ExecuteScalarAsync(string query, params MySqlParameter[] parameters)
+    {
+        try
+        {
+            await ConnectionOpenAsync();
+            await using var cmd = CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddRange(parameters);
+            var result = await cmd.ExecuteScalarAsync();
+            return result;
+        }
+        finally
+        {
+            await ConnectionCloseAsync();
+        }
     }
 }
