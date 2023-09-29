@@ -3,12 +3,12 @@ using MySql.Data.MySqlClient;
 
 namespace Database;
 
-public abstract class MySqlDatabase
+public class MySqlDatabase
 {
     private MySqlConnection Connection;
     private string ConnectionString;
 
-    protected MySqlDatabase(string server, string database, string username, string password)
+    public MySqlDatabase(string server, string database, string username, string password)
     {
         ConnectionString = $"Server={server};Database={database};User ID={username};Password={password};";
         Connection = new MySqlConnection(ConnectionString);
