@@ -26,7 +26,7 @@ namespace Database
 
         public async Task<MySqlDataReader> ExecuteQueryAsync(string query, params MySqlParameter[] parameters)
         {
-            await using MySqlConnection connection = new MySqlConnection(ConnectionString);
+            var connection = new MySqlConnection(ConnectionString);
             await connection.OpenAsync();
 
             await using MySqlCommand cmd = connection.CreateCommand();
