@@ -49,4 +49,18 @@ public class MySqlDatabase
         var result = await cmd.ExecuteScalarAsync();
         return result;
     }
+    
+    public async Task<bool> PingAsync()
+    {
+        try
+        {
+            await using MySqlConnection connection = new MySqlConnection(ConnectionString);
+            await connection.OpenAsync();
+            return true;
+        }
+        catch (MySqlException)
+        {
+            return false;
+        }
+    }
 }
