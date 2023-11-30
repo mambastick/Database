@@ -58,7 +58,7 @@ public class MDatabase
             await connection.OpenAsync();
             return true;
         }
-        catch (MySqlException ex)
+        catch (MySqlException)
         {
             return false;
         }
