@@ -4,10 +4,11 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>MDatabase</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MySql.Data" Version="8.1.0" />
+      <PackageReference Include="MySql.Data" Version="8.2.0" />
     </ItemGroup>
 
 </Project>

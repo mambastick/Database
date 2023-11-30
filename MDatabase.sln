@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{E831EA3C-8541-4D2F-9763-F2B2C120A55F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDatabase", "MDatabase\MDatabase.csproj", "{E831EA3C-8541-4D2F-9763-F2B2C120A55F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
