@@ -5,10 +5,30 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>MDatabase</RootNamespace>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>MDatabase</Title>
+        <Authors>mambastick</Authors>
+        <PackageTags>Database; MySQL; SQL; DB; Storage; Data;</PackageTags>
+        <Description>This is a library created for simplified developer interaction with the database.
+            The library is based on [MySQL.Data](https://www.nuget.org/packages/MySql.Data/)</Description>
+        <RepositoryType>github</RepositoryType>
+        <RepositoryUrl>https://github.com/mambastick/MDatabase</RepositoryUrl>
+        <Copyright>Copyright (c) Neelov Eugene 2023</Copyright>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageIcon>logo.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="MySql.Data" Version="8.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)..\LICENSE" Pack="true" PackagePath="/" />
+        <None Include="$(MSBuildThisFileDirectory)..\README.md" Pack="true" PackagePath="/" />
+        <None Include="$(MSBuildThisFileDirectory)..\logo.png" Pack="true" PackagePath="/" />
     </ItemGroup>
 
 </Project>
