@@ -6,7 +6,7 @@ namespace MDatabase;
 public class MDatabase
 {
     private readonly string ConnectionString;
-
+    
     public MDatabase(string server, string database, string username, string password)
     {
         ConnectionString = $"Server={server};Database={database};User ID={username};Password={password};";
@@ -49,22 +49,5 @@ public class MDatabase
         return await cmd.ExecuteScalarAsync();
     }
 
-    public async Task<bool> PingAsync()
-    {
-        var connection = new MySqlConnection(ConnectionString);
-        
-        try
-        {
-            await connection.OpenAsync();
-            return true;
-        }
-        catch (MySqlException)
-        {
-            return false;
-        }
-        finally
-        {
-            await connection.CloseAsync();
-        }
-    }
+    public async Task<bool> PingAsync() => await new MySqlConnection(ConnectionString).PingAsync();
 }
